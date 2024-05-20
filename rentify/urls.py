@@ -28,8 +28,8 @@ BASE_END = settings.BASE_URL + "v" + settings.APP_VERSION
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(f"{BASE_END}/auth-token/", views.obtain_auth_token),
-    path(f"{BASE_END}/", include("rentifyV1.urls")),
     path(f"{BASE_END}/users/", include("rentifyAuth.urls")),
+    path(f"{BASE_END}/", include("rentifyV1.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
