@@ -154,4 +154,4 @@ AUTH_USER_MODEL = "rentifyAuth.User"
 
 BASE_URL = "rentify-api/"
 
-APP_VERSION = "0"
+APP_VERSION = "1"
