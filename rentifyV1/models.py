@@ -58,7 +58,9 @@ class Property(models.Model):
     wishlist = models.ManyToManyField(
         AUTH_USER_MODEL, blank=True, related_name="whishlist"
     )
-    images = models.OneToOneField(to=Image, blank=True, on_delete=models.CASCADE)
+    images = models.OneToOneField(
+        to=Image, null=True, blank=True, on_delete=models.CASCADE
+    )
     tags = models.ManyToManyField(to=Tag, blank=True)
     category = models.ManyToManyField(to=Category, blank=True)
 
