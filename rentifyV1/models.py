@@ -40,7 +40,7 @@ class Property(models.Model):
 
     name = models.CharField(max_length=100, verbose_name="Property name", unique=True)
     price = models.BigIntegerField(verbose_name="Price of the property")
-    location = models.OneToOneField(to=Location, on_delete=models.CASCADE)
+    location = models.ForeignKey(to=Location, on_delete=models.CASCADE)
     place = models.CharField(max_length=250, verbose_name="Where property is located")
     street = models.CharField(
         max_length=150, verbose_name="Street in which proerty located"
