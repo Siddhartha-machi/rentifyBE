@@ -64,7 +64,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "PAGE_SIZE": 5,
+    "PAGE_SIZE": 6,
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
         "rest_framework.filters.OrderingFilter",
@@ -161,3 +161,12 @@ BASE_URL = "rentify-api/"
 APP_VERSION = "1"
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'live.smtp.mailtrap.io'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'api'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+EMIL_USE_SSL = False

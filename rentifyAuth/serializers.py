@@ -11,7 +11,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        exclude = ("password", "groups", "user_permissions")
+        exclude = ("groups", "user_permissions")
 
     def create(self, attrs):
         user = User.objects.create_user(**attrs)

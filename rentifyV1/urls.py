@@ -9,6 +9,8 @@ router = routers.DefaultRouter()
 router.register("property-list", PropertyAPIVIEW, basename=Property)
 router.register("tags-list", TagAPIVIEW, basename=Tag)
 router.register("category-list", CategoryAPIVIEW, basename=Category)
+router.register("location-list", LocationAPIVIEW, basename=Location)
+
 
 urlpatterns = [
     path("", include(router.urls)),

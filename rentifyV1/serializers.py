@@ -14,15 +14,22 @@ class TagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = "__all__"
 
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = "__all__"
 
 
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = "__all__"
+
+
 class PropertyListSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
-    images = ImageSerializer()
+    images = ImageSerializer(read_only=True)
 
     class Meta:
         model = Property

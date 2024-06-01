@@ -38,7 +38,9 @@ class Property(models.Model):
     with all the essential attributes.
     """
 
-    name = models.CharField(max_length=100, verbose_name="Property name", unique=True)
+    property_name = models.CharField(
+        max_length=100, verbose_name="Property name", unique=True
+    )
     price = models.BigIntegerField(verbose_name="Price of the property")
     location = models.ForeignKey(to=Location, on_delete=models.CASCADE)
     place = models.CharField(max_length=250, verbose_name="Where property is located")
@@ -50,9 +52,7 @@ class Property(models.Model):
     )
     baths = models.PositiveIntegerField(verbose_name="No of baths in the property")
 
-    seller = models.OneToOneField(
-        AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="prop_seller"
-    )
+    seller = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     like = models.ManyToManyField(AUTH_USER_MODEL, blank=True, related_name="likes")
     wishlist = models.ManyToManyField(
@@ -61,11 +61,11 @@ class Property(models.Model):
     images = models.OneToOneField(
         to=Image, null=True, blank=True, on_delete=models.CASCADE
     )
-    tags = models.ManyToManyField(to=Tag, blank=True)
+    amenities = models.ManyToManyField(to=Tag, blank=True)
     category = models.ManyToManyField(to=Category, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.property_name
 
     def clean(self):
         if self.seller.role != "seller":
